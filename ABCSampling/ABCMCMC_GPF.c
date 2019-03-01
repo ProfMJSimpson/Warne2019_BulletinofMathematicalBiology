@@ -74,7 +74,7 @@ priorPDF(unsigned int dim, double *theta)
     p_inv = 1.0;
     for (int j=0;j<dim;j++)
     {
-        tf = tf && (theta[j] <= abc_p.support[j]) && (theta[j] >= abc_p.support[j+dim]);
+        tf = tf && (theta[j] >= abc_p.support[j]) && (theta[j] <= abc_p.support[j+dim]);
         p_inv *= (abc_p.support[j+dim] - abc_p.support[j]);
     }
     return (tf) ? 1.0/p_inv : 0.0;
